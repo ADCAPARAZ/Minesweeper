@@ -59,7 +59,22 @@ public boolean isValid(int r, int c)
 public int countMines(int row, int col)
 {
     int numMines = 0;
-    //your code here
+        if(isValid(row,col-1) && mines.contains(buttons[row][col-1]));
+            numMines++;
+        if(isValid(row,col+1) && mines.contains(buttons[row][col+1]));
+            numMines++;
+        if(isValid(row-1,col) && mines.contains(buttons[row-1][col]));
+            numMines++;
+        if(isValid(row+1,col) && mines.contains(buttons[row+1][col]));
+            numMines++;
+        if(isValid(row-1,col-1) && mines.contains(buttons[row-1][col-1]));
+            numMines++;
+        if(isValid(row-1,col+1) && mines.contains(buttons[row-1][col+1]));
+            numMines++;
+        if(isValid(row+1,col+1) && mines.contains(buttons[row+1][col+1]));
+            numMines++;
+        if(isValid(row+1,col-1) && mines.contains(buttons[row+1][col-1]));
+            numMines++;
     return numMines;
 }
 public class MSButton
@@ -86,7 +101,14 @@ public class MSButton
     public void mousePressed () 
     {
         clicked = true;
-        //your code here
+        if(mouseButton == RIGHT && flagged == true){
+            flagged = false;
+            
+        }
+        if(mouseButton == RIGHT && flagged == false){
+            flagged = true;
+            clicked = false;
+        }
     }
     public void draw () 
     {    
